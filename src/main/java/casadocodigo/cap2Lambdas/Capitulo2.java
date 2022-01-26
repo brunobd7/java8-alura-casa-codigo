@@ -34,7 +34,7 @@ public class Capitulo2 {
         } ;
         usersList.forEach(mostrador2);
 
-        //op 3 - INSTACIA DE CLASSE ANONIMA DIRETO NO FOREACH
+        //op 3 - INSTANCIA DE CLASSE ANONIMA DIRETO NO FOREACH
         usersList.forEach(new Consumer<Usuario>() {
             @Override
             public void accept(Usuario usuario) {
@@ -42,6 +42,23 @@ public class Capitulo2 {
             }
         });
 
+
+        //op 4 - SIMPLICANDO OPERACAO COM LAMBDAS
+
+        Consumer<Usuario> mostradorLambda =  (Usuario u) -> {
+            System.out.println(u.getNome());
+        };
+
+        //OU
+        Consumer<Usuario> mostradorLambda2 = u -> {
+            System.out.println(u.getNome());
+        } ;
+        //OU
+        // SE EXISTIR SOMENTE UMA INSTRUCAO AS CHAVES SAO OPCIONAIS
+        Consumer<Usuario> mostradorLambda3 = u -> System.out.println(u.getNome());
+
+        // OP MAIS COMUM COM SINTAXE MAIS LIMPA, SEM VAR TEMPORARIA PASSANDO O CONSUMER DIRETAMENTE NO EACH
+        usersList.forEach( u -> System.out.println(u.getNome()));
 
     }
 
