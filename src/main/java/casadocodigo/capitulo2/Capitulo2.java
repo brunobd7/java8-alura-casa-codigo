@@ -1,4 +1,4 @@
-package casadocodigo.cap2Lambdas;
+package casadocodigo.capitulo2;
 
 import java.util.Arrays;
 import java.util.List;

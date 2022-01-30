@@ -1,4 +1,4 @@
-package casadocodigo.cap2Lambdas;
+package casadocodigo.capitulo2;
 
 import com.sun.istack.internal.NotNull;
 import lombok.Getter;
