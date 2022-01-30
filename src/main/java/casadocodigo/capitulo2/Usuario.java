@@ -10,7 +10,7 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @RequiredArgsConstructor
-class Usuario {
+public class Usuario {
 
     @NotNull
     private String nome;
