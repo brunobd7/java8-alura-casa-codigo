@@ -4,30 +4,47 @@ public class Cap3Main {
 
     public static void main(String[] args) {
 
-        //USANDO INTERFACE PESSOAL CRIADA NO PADRAO CLASSE ANONIMA
-//        Validador<String> validadorCep = new Validador<String>() {
-//            @Override
-//            public boolean validar(String valor) {
-//                return valor.matches("[0-9]{5}-[0-9]{3}");
-//            }
+        //EXEMPLO INTERFACE FUNCIONAL COM OO ou COM IMPLEMENTACAO DIRETA NO OBJETO 'validadorCepLambda'
+//        Validador<String> validadorCepLambda = valor -> valor.matches("[0-9]{5}-[0-9]{3}");
+        Validador<String> validadorCepLambda = new ValidadorImplExemplo().validadorCepLambda2;
+        boolean cepEhValido = validadorCepLambda.validar("74475-370");
+
+//        if (cepEhValido) {
+//            System.out.println("CEP É VALIDO");
+//        } else {
+//            System.out.println("CEP É INVALIDO");
+//        }
+
+        //FIM EXEMPLO
+
+        // PARA UTILIZACAO DA EXPRESSAO LAMBDA É OBRIGATORIO O USO DE UMA INTERFACE FUNCIONAL SENAO O CODIGO NAO IRA COMPILAR
+        // CONFORME O EXEMPLO ABAIXO
+
+        //TENTATIVA DE USO INCORRETO DA LAMBDA SEM INTERFACE FUNCIONAL
+//        Object o = () -> {
+//            System.out.println("NAO COMPILARA , NAO ENVOLVE OU INFERE UM INTERFACE FUNCIONAL");
 //        };
 
-        //USANDO INTERFACE CRIADA ATRAVES DE EXPRESSAO LAMBDA
-        // COMO POSSUI UNICO METODO ABSTRADO E CONSIDERADA INTERFACE FUNCIONAL PELO COMPILADOR
+        // USO CORRETO
+        // COMPILA POIS IMPLEMENTA A INTERFACE FUNCIONAL DE EXEMPLO "(UNICO METODO 'run()' NA INTERFACE 'Runnable')
+        Runnable r = () -> {
+            System.out.println("O que sou eu? Que Lambda?");
+        };
 
-//        Validador<String> validadorCepLambda = cepString -> {
-//             return cepString.matches("[0-9]{5}-[0-9]{3}");
-//        };
+        System.out.println(r);
+        System.out.println(r.getClass());
 
-        Validador<String> validadorCepLambda2 = valor -> valor.matches("[0-9]{5}-[0-9]{3}");
+        //FIM EXEMPLO
 
-        boolean cepEhValido = validadorCepLambda2.validar("74475-370");
+        //CAPTURA DE VARIAVEIS LOCAIS
 
-        if(cepEhValido){
-            System.out.println("CEP É VALIDO");
-        }else{
-            System.out.println("CEP É INVALIDO");
-        }
+        final int numero = 5;
+        int numero2 = 21;
+//        new Thread(() -> System.out.println(numero)).start();
+        new Thread(() -> {
+            System.out.println(numero);
+        }).start();
+
     }
 
 }
