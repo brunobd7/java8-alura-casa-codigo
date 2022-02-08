@@ -2,9 +2,11 @@ package casadocodigo.capitulo4;
 
 import casadocodigo.capitulo2.Usuario;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.function.Consumer;
+import java.util.function.Predicate;
 
 public class Cap4Main {
 
@@ -21,10 +23,22 @@ public class Cap4Main {
 
         //PARA UTILIZAR O DEFAULT METHOD DO CONSUMER A IMPLEMENTACAO DEVEM SER DO TIPO EM COMUM
         //ASSIM PODENDO SER CHAMADA A SEGUNDA IMPLEMENTE APÓS A EXECUCAO DA PRIMEIRA SE FOREMD O MESMO TIPO
+
         usersList.forEach(imprimeMensagem.andThen(imprimeNome));
 
+        System.out.println("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
 
-        //TODO CONTINUAR NA PAGINA 21
+        List<Usuario> mutableUsersList = new ArrayList<>();
+        mutableUsersList.add(user1);
+        mutableUsersList.add(user2);
+        mutableUsersList.add(user3);
+
+        Predicate<Usuario> predicado =  u -> u.getPontos() > 160;
+
+        mutableUsersList.removeIf(predicado);
+        mutableUsersList.forEach(imprimeNome);
+
+
 
     }
 }
