@@ -30,7 +30,9 @@ public class Cap5Main {
 //        Collections.sort(usersList, comparator);
         Collections.sort(usersList, comparator2);
 
-        //TODO PAGINA 28 CONHECENDO MELHOR A FACTORY COMPARATOR.COMPARING
+        //TODO PAGINA 28 CONHECENDO MELHOR A FACTORY COMPARATOR.COMPARING\
+
+        //TEST MULTI USERS GIT CONFIG
 
     }
 
